@@ -18,11 +18,11 @@ The framework, which might be a little difficult for C-beginners, is already don
 
 **Goal:** <u>To Write a Local Market of NJU named Whale Market</u>.
 
-**Environment: ** **Linux & gcc** is highly recommended because that's where the environment of framework. However, there won't be any problems with **Windows & VS** during phase1 to phase3, since these two phases doesn't need framework.
+**Environment:** **Linux & gcc** is highly recommended because that's where the environment of framework. However, there won't be any problems with **Windows & VS** during phase1 to phase3, since these two phases doesn't need framework.
 
-**Workload: ** Based on yourself, but regularly 1000 - 1500 lines.
+**Workload:** Based on yourself, but regularly 1000 - 1500 lines.
 
-**Forerunner: ** Fundamentals of Programming with C/C++.
+**Forerunner:** Fundamentals of Programming with C/C++.
 
 > The tutorial part will be in Chinese, and I recommend you to design your Market in Chinese, which will save your enery so that you can focus on the designment itself. 
 
