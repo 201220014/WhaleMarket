@@ -42,15 +42,6 @@ void adminLogin() {
 
 }
 
-HANDLER handler[] = {userLogin, userSignUp, adminLogin};
+static HANDLER handler[] = {userLogin, userSignUp, adminLogin};
 
-void mainInterface() {
-    int op = menu(MAIN);
-    while (op != 4) {
-        loadingMessage();
-        handler[op - 1]();
-        op = menu(MAIN);
-    }
-    loadingMessage();
-}
-
+makeInterface(M, AIN)

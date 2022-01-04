@@ -12,11 +12,11 @@ const char* BANNER = "\
 \t    \\/  \\/   |_| |_|\\__,_|_|\\___|   |_|  |_|\\__,_|_|  |_|\\_\\___|\\__|   (_)\n\
 ";
 
-const char* SUCCESS = "\t*** Operation Successful! ***";
-const char* FAILURE = "\t*** Operation Failed! ***";
-const char* ILLEGAL = "\t*** Illegal Input! ***";
-const char* LOADING = "\t*** Loading ... ***";
-const char* EXITING = "\t*** Exiting ... ***";
+const char* SUCCESS = "\t\t*** Operation Successful! ***";
+const char* FAILURE = "\t\t*** Operation Failed! ***";
+const char* ILLEGAL = "\t\t*** Illegal Input! ***";
+const char* LOADING = "\t\t*** Loading ... ***";
+const char* EXITING = "\t\t*** Exiting ... ***";
 
 void welcomeMessage() {
     printf("\n%s%sWelcome to%s\n", BOLD, FRONT_RED, RESET);

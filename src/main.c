@@ -6,7 +6,7 @@
 int main() {
     pullUsers();
     welcomeMessage();
-    mainInterface();
+    MAIN_Interface();
     exitingMessage();
     pushUsers();
     return 0;
