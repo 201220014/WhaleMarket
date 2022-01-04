@@ -42,6 +42,14 @@ void pushGoods();
 void goodCopy(Good* dest, const Good* src);
 
 /**
+ * @brief Get the Good object
+ * 
+ * @param idex index
+ * @return Good* pointer to result good
+ */
+Good* getGood(int idex);
+
+/**
  * @brief search good with id
  * 
  * @param id good id to be searched

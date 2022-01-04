@@ -34,6 +34,14 @@ void pushUsers();
 void userCopy(User* dest, const User* src);
 
 /**
+ * @brief Get the User object
+ * 
+ * @param idex index
+ * @return User* pointer to result user
+ */
+User* getUser(int idex);
+
+/**
  * @brief search user with id
  * 
  * @param id user id to be searched

@@ -39,6 +39,8 @@ void goodCopy(Good* dest, const Good* src) {
     strcpy(dest->description, src->description);
 }
 
+Good* getGood(int idx) { return goods + idx; }
+
 void printGood(int i) {
     printf("%s %s %lf %s %d\n", goods[i].id, goods[i].name, goods[i].price, \
 goods[i].seller_id, goods[i].state);

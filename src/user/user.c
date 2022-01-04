@@ -38,6 +38,8 @@ void userCopy(User* dest, const User* src) {
     dest->balance = src->balance;
 }
 
+User* getUser(int idex) { return users + idex; }
+
 void printUsers() {
     for (int i = 0; i < totalUser; i++)
         printf("%s %s %s %s %s %lf\n", users[i].id, users[i].name, users[i].passwd, \
