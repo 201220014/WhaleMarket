@@ -7,5 +7,6 @@ void failureMessage();
 void illegalMessage();
 void loadingMessage();
 void exitingMessage();
+void invalidMessage();
 
 #endif

@@ -1,28 +1,19 @@
 #include "interface/interface.h"
-#include "tools/hint.h"
-#include "menu/menu.h"
-#include "user/user.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void userLogin() {
-    char username[MAX_LEN];
-    char passwd[MAX_LEN];
-    printf ("Username: ");
-    scanf("%s", username);
-    printf ("Password: ");
-    scanf("%s", passwd);
-    if (checkPass(username, passwd)) {
-        successMessage();
-        loadingMessage();
-        // TODO: user interface
-        return ;
-    }
+void inv() { 
+    invalidMessage(); 
     failureMessage();
 }
 
-void userSignUp() {
+make_login(U, SER, checkPass(username, passwd), USER_Interface)
+make_login(A, DMIN, strcmp(username, ADMIN_NAME) == 0 && \
+strcmp(passwd, ADMIN_PASS) == 0, ADMIN_Interface)
+
+static void userSignUp() {
     User* u = (User*)malloc(sizeof(User));
     printf("Please input your username: ");
     scanf("%s", u->name);
@@ -38,10 +29,6 @@ void userSignUp() {
     free(u);
 }
 
-void adminLogin() {
+static HANDLER handler[] = {USER_Login, userSignUp, ADMIN_Login};
 
-}
-
-static HANDLER handler[] = {userLogin, userSignUp, adminLogin};
-
-makeInterface(M, AIN)
+make_interface(M, AIN)
