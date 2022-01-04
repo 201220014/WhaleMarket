@@ -12,7 +12,7 @@
 
 This is a <u>C-beginner project</u> -- **Whale Market**. Basically it's an **Infomation Management System**, which is also the <u>first project of most C-developers</u>. 
 
-The framework, which might be a little difficult for C-beginners, is already done. There will be **3 phases** during this project. **The framework code will only work as a reference in phase1, phase2 and phase3. And you don't have to follow the code.** In phase3, I invite you guys to help me completed my version of the whole project based on what I have written.
+The framework, which might be a little difficult for C-beginners, is already done. There will be **4 phases** during this project. **The framework code will only work as a reference in phase1, phase2 and phase3. And you don't have to follow the code.** In phase4, I invite you guys to help me completed my version of the whole project based on what I have written.
 
 > Actually, I suggest you guys not reading the framework code until phase4. When it comes to phase4, compare what you have written and how I code to achieve the same goal with you, and you will get a lot of inspiration.
 
