@@ -1,0 +1,4 @@
+*.o
+*.txt
+.DS_STORE
+main
