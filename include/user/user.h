@@ -3,8 +3,6 @@
 
 #include "config.h"
 
-#define MAX_USER 128
-
 // type definition of user
 typedef struct {
     char id[MAX_LEN];
@@ -12,11 +10,8 @@ typedef struct {
     char passwd[MAX_LEN];
     char contact[MAX_LEN];
     char address[MAX_LEN];
-    int balance;
+    double balance;
 } User;
-
-extern User users[]; // all users
-extern int totalUser; // total user number
 
 /**
  * @brief pull all user infomation from external file
@@ -44,7 +39,7 @@ void userCopy(User* dest, const User* src);
  * @param id user id to be searched
  * @return int -1 if failed else index in users
  */
-int searchID(const char* id);
+int searchUserID(const char* id);
 
 /**
  * @brief search user with name
@@ -52,7 +47,7 @@ int searchID(const char* id);
  * @param name username to be searched
  * @return int -1 if failed else index in users
  */
-int searchName(const char* name);
+int searchUserName(const char* name);
 
 /**
  * @brief add user u to users

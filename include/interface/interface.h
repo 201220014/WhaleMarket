@@ -4,6 +4,7 @@
 #include "tools/hint.h"
 #include "menu/menu.h"
 #include "user/user.h"
+#include "good/good.h"
 
 // invalid prompt
 void inv();

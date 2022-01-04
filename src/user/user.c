@@ -3,17 +3,18 @@
 #include <stdio.h>
 #include <string.h>
 
-User users[MAX_USER];
-int totalUser = 0;
+#define MAX_USER 128
+
+User users[MAX_USER]; // all users
+int totalUser = 0; // total user number
 
 static const char* filePath = "src/data/user.txt";
-const char* header = "";
 
 void pullUsers() {
     totalUser = 0;
     FILE* pf = fopen(filePath, "r");
     if (pf) {
-        while (fscanf(pf, "%s%s%s%s%s%d", users[totalUser].id, \
+        while (fscanf(pf, "%s%s%s%s%s%lf", users[totalUser].id, \
 users[totalUser].name, users[totalUser].passwd, users[totalUser].contact, \
 users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
         fclose(pf);
@@ -23,7 +24,7 @@ users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
 void pushUsers() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalUser; i++)
-        fprintf(pf, "%s %s %s %s %s %d\n", users[i].id, users[i].name, users[i].passwd, \
+        fprintf(pf, "%s %s %s %s %s %lf\n", users[i].id, users[i].name, users[i].passwd, \
 users[i].contact, users[i].address, users[i].balance);
     fclose(pf);
 }
@@ -39,31 +40,31 @@ void userCopy(User* dest, const User* src) {
 
 void printUsers() {
     for (int i = 0; i < totalUser; i++)
-        printf("%s %s %s %s %s %d\n", users[i].id, users[i].name, users[i].passwd, \
+        printf("%s %s %s %s %s %lf\n", users[i].id, users[i].name, users[i].passwd, \
 users[i].contact, users[i].address, users[i].balance);
 }
 
-int searchName(const char* name) {
+int searchUserName(const char* name) {
     for (int i = 0; i < totalUser; i++)
         if (strcmp(users[i].name, name) == 0) return i;
     return -1;
 }
 
 int addUser(User* u) {
-    if (searchName(u->name) != -1) return 0;
+    if (searchUserName(u->name) != -1) return 0;
     genID(u->id, 'U');
     userCopy(&users[totalUser++], u);
     return 1;
 }
 
-int searchID(const char* id) {
+int searchUserID(const char* id) {
     for (int i = 0; i < totalUser; i++)
         if (strcmp(users[i].id, id) == 0) return i;
     return -1;
 }
 
 int deleteUser(const char* id) {
-    int idx = searchID(id);
+    int idx = searchUserID(id);
     if (idx == -1) return 0;
     for (int j = idx; j < totalUser - 1; j++) userCopy(&users[j], &users[j+1]);
     totalUser--;
@@ -71,7 +72,7 @@ int deleteUser(const char* id) {
 }
 
 int checkPass(const char* name, const char* passwd) {
-    int idx = searchName(name);
+    int idx = searchUserName(name);
     if (idx == -1) return 0;
     return strcmp(users[idx].passwd, passwd) == 0;
 }
