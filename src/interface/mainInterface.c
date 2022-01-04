@@ -6,18 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-HANDLER handler[] = { };
-
-void mainInterface() {
-    int op = menu(MAIN);
-    while (op != 4) {
-        loadingMessage();
-        handler[op - 1]();
-        op = menu(MAIN);
-    }
-    loadingMessage();
-}
-
 void userLogin() {
     char username[MAX_LEN];
     char passwd[MAX_LEN];
@@ -31,7 +19,7 @@ void userLogin() {
         // TODO: user interface
         return ;
     }
-
+    failureMessage();
 }
 
 void userSignUp() {
@@ -52,5 +40,17 @@ void userSignUp() {
 
 void adminLogin() {
 
+}
+
+HANDLER handler[] = {userLogin, userSignUp, adminLogin};
+
+void mainInterface() {
+    int op = menu(MAIN);
+    while (op != 4) {
+        loadingMessage();
+        handler[op - 1]();
+        op = menu(MAIN);
+    }
+    loadingMessage();
 }
 

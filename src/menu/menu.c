@@ -1,6 +1,8 @@
 #include "menu/menu.h"
 #include "tools/hint.h"
+#include "config.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 // the number of menus
 #define MENU_NUM 5
@@ -52,14 +54,16 @@ void promptMessage(Menu type) {
 
 int menu(Menu type) {
     promptMessage(type);
+    char buffer[MAX_LEN];
     int res;
-    scanf("%d", &res);
+    scanf("%s", buffer);
+    res = atoi(buffer);
     while (1) {
         if (res >= 1 && res <= optionNum[type]) break;
         illegalMessage();
         printf("Please try again: ");
-        scanf("%d", &res);
+        scanf("%s", buffer);
+        res = atoi(buffer);
     }
-    successMessage();
     return res;
 }
