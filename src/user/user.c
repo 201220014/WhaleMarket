@@ -73,8 +73,8 @@ int deleteUser(const char* id) {
     return 1;
 }
 
-int checkPass(const char* name, const char* passwd) {
-    int idx = searchUserName(name);
-    if (idx == -1) return 0;
-    return strcmp(users[idx].passwd, passwd) == 0;
+int checkPass(const char* name, const char* passwd, int* idx) {
+    *idx = searchUserName(name);
+    if (*idx == -1) return 0;
+    return strcmp(users[*idx].passwd, passwd) == 0;
 }

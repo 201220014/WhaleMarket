@@ -9,6 +9,9 @@
 // invalid prompt
 void inv();
 
+// current User
+extern int curUser;
+
 typedef void (*HANDLER)(void);
 
 /* An interface gets user input with corresponding menu and handles it. */
@@ -66,12 +69,12 @@ void T##YPE##_Interface() {\
     printf ("Password: ");\
     scanf("%s", passwd);
 
-#define make_login(T, YPE, cond, target)\
+#define make_login(T, YPE, cond)\
 static void T##YPE##_Login() {\
     get_username_passwd\
     if (cond) {\
         successMessage();\
-        target();\
+        T##YPE##_Interface();\
         return ;\
     }\
     failureMessage();\

@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+int curUser = -1;
+
 static void asBuyer() {
     successMessage();
     BUYER_Interface();

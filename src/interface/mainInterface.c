@@ -9,9 +9,8 @@ void inv() {
     failureMessage();
 }
 
-make_login(U, SER, checkPass(username, passwd), USER_Interface)
-make_login(A, DMIN, strcmp(username, ADMIN_NAME) == 0 && \
-strcmp(passwd, ADMIN_PASS) == 0, ADMIN_Interface)
+make_login(U, SER, checkPass(username, passwd, &curUser))
+make_login(A, DMIN, strcmp(username, ADMIN_NAME) == 0 && strcmp(passwd, ADMIN_PASS) == 0)
 
 static void userSignUp() {
     User* u = (User*)malloc(sizeof(User));

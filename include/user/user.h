@@ -84,8 +84,9 @@ void printUsers();
  * 
  * @param name username
  * @param passwd password
+ * @param idx index of user if exists else -1
  * @return int 1 if matched else 0
  */
-int checkPass(const char* name, const char* passwd);
+int checkPass(const char* name, const char* passwd, int* idx);
 
 #endif

@@ -1,6 +1,8 @@
 #include "interface/interface.h"
 
+void sell() {
+    
+}
 
-
-static HANDLER handler[] = {inv, inv, inv, inv, inv, inv, inv};
+static HANDLER handler[] = {sell, inv, inv, inv, inv, inv, inv};
 make_interface(S, ELLER)
