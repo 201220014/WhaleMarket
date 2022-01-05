@@ -96,4 +96,24 @@ static void ban##T##YPE() {\
 
 #define fail { failureMessage(); return; }
 
+#define make_search(WHO)\
+static void search() {\
+    char buffer[MAX_LEN];\
+    printf("Please input Good Name to search: ");\
+    scanf("%s", buffer);\
+    loadingMessage();\
+    searchGoodName4##WHO(buffer);\
+    successMessage();\
+}
+
+#define make_modify(TYPE, NAME)\
+static void modify_##TYPE() {\
+    char buffer[MAX_LEN];\
+    printf("Please input new %s: ", NAME);\
+    scanf("%s", buffer);\
+    User* u = getUser(curUser);\
+    strcpy(u->TYPE, buffer);\
+    successMessage();\
+}
+
 #endif

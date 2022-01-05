@@ -104,6 +104,6 @@ int checkPass(const char* name, const char* passwd, int* idx);
  * @param m money
  * @return int 0 if failed else 1
  */
-int topUp(const char* id, double m);
+int userTopUp(const char* id, double m);
 
 #endif

@@ -86,7 +86,16 @@ void printGoods4Buyer() {
         }
 }
 
-void searchGoodName(const char* name) {
+void searchGoodName4Buyer(const char* name) {
+    print_header
+    for (int i = 0; i < totalGood; i++)
+        if (goods[i].state == SELLING && strstr(goods[i].name, name)) {
+            printGood(i);
+            print_divide
+        }
+}
+
+void searchGoodName4Admin(const char* name) {
     print_header
     for (int i = 0; i < totalGood; i++)
         if (strstr(goods[i].name, name)) {

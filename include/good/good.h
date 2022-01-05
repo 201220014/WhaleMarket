@@ -80,11 +80,18 @@ int deleteGood(const char* id, const char* who);
 void printGoods();
 
 /**
- * @brief print search results
+ * @brief print search results for buyer
  * 
- * @param name name to be searched
+ * @param name good name to be searched
  */
-void searchGoodName(const char* name);
+void searchGoodName4Buyer(const char* name);
+
+/**
+ * @brief print search results for administrator
+ * 
+ * @param name good name to be searched
+ */
+void searchGoodName4Admin(const char* name);
 
 /**
  * @brief good information

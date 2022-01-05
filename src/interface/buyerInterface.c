@@ -19,7 +19,7 @@ static void buy() {
     if (g->price > u->balance) fail
     u->balance -= g->price;
     g->state = SOLD;
-    topUp(g->seller_id, g->price);
+    userTopUp(g->seller_id, g->price);
     successMessage();
 }
 
@@ -34,14 +34,7 @@ static void info() {
     successMessage();
 }
 
-static void search() {
-    char buffer[MAX_LEN];
-    printf("Please input Good Name to search: ");
-    scanf("%s", buffer);
-    loadingMessage();
-    searchGoodName(buffer);
-    successMessage();
-}
+make_search(Buyer)
 
-static HANDLER handler[] = {myGoods, buy, search, inv, info};
+static HANDLER handler[] = {myGoods, buy, search, inv/*Order*/, info};
 make_interface(B, UYER)

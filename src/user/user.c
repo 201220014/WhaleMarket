@@ -48,12 +48,11 @@ users[i].contact, users[i].address, users[i].balance);
 }
 
 void userInfo(int i) {
-    printf("ID: %s\n", users[i].id);
-    printf("Name: %s\n", users[i].name);
-    printf("Password: %s\n", users[i].passwd);
-    printf("Contact: %s \n", users[i].contact);
-    printf("Address: %s \n", users[i].address);
-    printf("Balance: %.1f \n", users[i].balance);
+    printf("ID:        | %s\n", users[i].id);
+    printf("Name:      | %s\n", users[i].name);
+    printf("Contact:   | %s\n", users[i].contact);
+    printf("Address:   | %s\n", users[i].address);
+    printf("Balance:   | %.1f\n", users[i].balance);
 }
 
 void printUsers() {
@@ -99,7 +98,7 @@ int checkPass(const char* name, const char* passwd, int* idx) {
     return strcmp(users[*idx].passwd, passwd) == 0;
 }
 
-int topUp(const char* id, double m) {
+int userTopUp(const char* id, double m) {
     int idx = searchUserID(id);
     if (idx == -1) return 0;
     users[idx].balance += m;
