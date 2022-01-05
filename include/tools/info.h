@@ -16,4 +16,10 @@ void getDate(char* dest);
  */
 void genID(char* dest, char type);
 
+// helper macro for print
+#define print_header \
+    printf("%s\n", divide);\
+    printf("%s\n", header);\
+    printf("%s\n", divide);
+
 #endif

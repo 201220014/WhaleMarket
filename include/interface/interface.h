@@ -25,7 +25,7 @@ void MAIN_Interface();
 
 /**
  * @brief 
- * | 1.Buyer | 2.Seller | 3.Infomation | 4.Back |
+ * | 1.Buyer | 2.Seller | 3.Information | 4.Back |
  */
 void USER_Interface();
 
@@ -46,6 +46,10 @@ void BUYER_Interface();
  * | 1.Sell | 2.Goods | 3.Modify | 4.Ban | 5.Order | 6.Back |\n\
  */
 void SELLER_Interface();
+
+void INFO_Interface();
+
+void MODIFY_Interface();
 
 
 // below are some helper macros that simplify codes

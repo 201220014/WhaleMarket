@@ -9,7 +9,8 @@ int totalGood = 0;
 const char* stateName[] = {"Selling", "Sold", "Banned"};
 
 static const char* filePath = "src/data/good.txt";
-const char* header = "";
+static const char* header = "|ID         |Name       |Price      |Date       |Seller     |State      |";
+static const char* divide = "+-----------+-----------+-----------+-----------+-----------+-----------+";
 
 void pullGoods() {
     totalGood = 0;
@@ -25,7 +26,7 @@ goods[totalGood].name, &goods[totalGood].price, goods[totalGood].seller_id, \
 void pushGoods() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalGood; i++)
-        fprintf(pf, "%s %s %lf %s %u %s %s\n", goods[i].id, goods[i].name, goods[i].price, \
+        fprintf(pf, "%s %s %.1f %s %u %s %s\n", goods[i].id, goods[i].name, goods[i].price, \
 goods[i].seller_id, goods[i].state, goods[i].date, goods[i].description);
     fclose(pf);
 }
@@ -40,27 +41,33 @@ void goodCopy(Good* dest, const Good* src) {
     strcpy(dest->description, src->description);
 }
 
-Good* getGood(int idx) { return goods + idx; }
+void goodInfo(int i) {
+    printf("ID: %s\n", goods[i].id);
+    printf("Name: %s\n", goods[i].name);
+    printf("Date: %s\n", goods[i].date);
+    printf("Price: %.1f \n", goods[i].price);
+    printf("Seller: %s \n", goods[i].seller_id);
+    printf("State: %s \n", stateName[goods[i].state]);
+}
 
 void printGood(int i) {
-    printf("%s %s %lf %s %s %s\n", goods[i].id, goods[i].name, goods[i].price, \
+    printf("|%-10s |%-10s |%-10.1f |%-10s |%-10s |%-10s |\n", goods[i].id, goods[i].name, goods[i].price, \
 goods[i].date, goods[i].seller_id, stateName[goods[i].state]);
 }
 
 void printGoods() {
-    for (int i = 0; i < totalGood; i++) 
+    print_header
+    for (int i = 0; i < totalGood; i++) {
         printGood(i);
-}
-
-int searchGoodName(const char* name) {
-    for (int i = 0; i < totalGood; i++)
-        if (strcmp(goods[i].name, name) == 0) return i;
-    return -1;
+        printf("%s\n", divide);
+    }
 }
 
 int addGood(Good* g) {
+    if (totalGood == MAX_GOOD) return 0;
     genID(g->id, 'G');
     getDate(g->date);
+    g->state = SELLING;
     goodCopy(&goods[totalGood++], g);
     return 1;
 }

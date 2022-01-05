@@ -9,6 +9,8 @@ User users[MAX_USER]; // all users
 int totalUser = 0; // total user number
 
 static const char* filePath = "src/data/user.txt";
+static const char* header = "|ID         |Name       |Contact    |Address    |Balance    |";
+static const char* divide = "+-----------+-----------+-----------+-----------+-----------+";
 
 void pullUsers() {
     totalUser = 0;
@@ -24,7 +26,7 @@ users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
 void pushUsers() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalUser; i++)
-        fprintf(pf, "%s %s %s %s %s %lf\n", users[i].id, users[i].name, users[i].passwd, \
+        fprintf(pf, "%s %s %s %s %s %.1f\n", users[i].id, users[i].name, users[i].passwd, \
 users[i].contact, users[i].address, users[i].balance);
     fclose(pf);
 }
@@ -40,10 +42,26 @@ void userCopy(User* dest, const User* src) {
 
 User* getUser(int idex) { return users + idex; }
 
-void printUsers() {
-    for (int i = 0; i < totalUser; i++)
-        printf("%s %s %s %s %s %lf\n", users[i].id, users[i].name, users[i].passwd, \
+static void printUser(int i) {
+    printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
 users[i].contact, users[i].address, users[i].balance);
+}
+
+void userInfo(int i) {
+    printf("ID: %s\n", users[i].id);
+    printf("Name: %s\n", users[i].name);
+    printf("Password: %s\n", users[i].passwd);
+    printf("Contact: %s \n", users[i].contact);
+    printf("Address: %s \n", users[i].address);
+    printf("Balance: %.1f \n", users[i].balance);
+}
+
+void printUsers() {
+    print_header
+    for (int i = 0; i < totalUser; i++) {
+        printUser(i);
+        printf("%s\n", divide);
+    }
 }
 
 int searchUserName(const char* name) {
@@ -53,6 +71,7 @@ int searchUserName(const char* name) {
 }
 
 int addUser(User* u) {
+    if (totalUser == MAX_USER) return 0;
     if (searchUserName(u->name) != -1) return 0;
     genID(u->id, 'U');
     userCopy(&users[totalUser++], u);

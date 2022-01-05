@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void sell() {
+static void sell() {
     User* seller = getUser(curUser);
     Good* g = (Good*)malloc(sizeof(Good));
     printf("Please input the information of your product ...\n");
@@ -23,7 +23,8 @@ void sell() {
     printf("Description: ");
     scanf("%s", g->description);
     strcpy(g->seller_id, seller->id);
-    addGood(g);
+    if (addGood(g)) successMessage();
+    else failureMessage();
     free(g);
 }
 

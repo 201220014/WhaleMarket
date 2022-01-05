@@ -34,12 +34,12 @@ void welcomeMessage() {
 }
 
 void successMessage() { printf("\n%s%s%s\n\n", FRONT_GREEN, SUCCESS, RESET); }
-void failureMessage() { printf("\n%s%s%s\n\n", FRONT_RED, FAILURE, RESET); }
-void illegalMessage() { printf("\n%s%s%s\n\n", FRONT_RED, ILLEGAL, RESET); }
+void failureMessage() { printf("\n%s%s%s\a\n\n", FRONT_RED, FAILURE, RESET); }
+void illegalMessage() { printf("\n%s%s%s\a\n\n", FRONT_RED, ILLEGAL, RESET); }
 void loadingMessage() { printf("\n%s%s%s\n\n", FRONT_BLUE, LOADING, RESET); }
 void exitingMessage() { printf("\n%s%s%s\n\n", FRONT_GREEN, EXITING, RESET); }
 void invalidMessage() { 
-    printf("\n%s%s%s\n\n", FRONT_RED, INVALID, RESET);
+    printf("\n%s%s%s\a\n\n", FRONT_RED, INVALID, RESET);
     printf("\n%s%sThis Function is Waiting For you to Implement ...%s\n\n", \
 FRONT_RED, BOLD, RESET);
 }

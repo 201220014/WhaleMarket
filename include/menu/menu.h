@@ -2,7 +2,7 @@
 #define _MENU_H_
 
 // types of menu
-typedef enum {MAIN, ADMIN, USER, BUYER, SELLER} Menu;
+typedef enum {MAIN, ADMIN, USER, BUYER, SELLER, INFO, MODIFY} Menu;
 
 // the number of option for different menus
 extern const int optionNum[];

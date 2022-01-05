@@ -42,6 +42,13 @@ void userCopy(User* dest, const User* src);
 User* getUser(int idex);
 
 /**
+ * @brief print detailed information
+ * 
+ * @param i user index
+ */
+void userInfo(int i);
+
+/**
  * @brief search user with id
  * 
  * @param id user id to be searched

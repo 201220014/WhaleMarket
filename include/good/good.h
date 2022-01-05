@@ -43,28 +43,12 @@ void pushGoods();
 void goodCopy(Good* dest, const Good* src);
 
 /**
- * @brief Get the Good object
- * 
- * @param idex index
- * @return Good* pointer to result good
- */
-Good* getGood(int idex);
-
-/**
  * @brief search good with id
  * 
  * @param id good id to be searched
  * @return int -1 if failed else index in goods
  */
 int searchGoodID(const char* id);
-
-/**
- * @brief search good with name
- * 
- * @param name good name to be searched
- * @return int -1 if failed else index in goods
- */
-int searchGoodName(const char* name);
 
 /**
  * @brief add Good g to goods
@@ -83,7 +67,7 @@ int addGood(Good* g);
 int deleteGood(const char* id);
 
 /**
- * @brief print all goods' infomation
+ * @brief print all goods' information
  * 
  */
 void printGoods();
