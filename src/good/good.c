@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MAX_GOOD 128
+
 Good goods[MAX_GOOD];
 int totalGood = 0;
 
@@ -41,13 +43,16 @@ void goodCopy(Good* dest, const Good* src) {
     strcpy(dest->description, src->description);
 }
 
+Good* getGood(int idex) { return goods + idex; }
+
 void goodInfo(int i) {
-    printf("ID: %s\n", goods[i].id);
-    printf("Name: %s\n", goods[i].name);
-    printf("Date: %s\n", goods[i].date);
-    printf("Price: %.1f \n", goods[i].price);
-    printf("Seller: %s \n", goods[i].seller_id);
-    printf("State: %s \n", stateName[goods[i].state]);
+    printf("ID:            | %s\n", goods[i].id);
+    printf("Name:          | %s\n", goods[i].name);
+    printf("Description:   | %s\n", goods[i].description);
+    printf("Date:          | %s\n", goods[i].date);
+    printf("Price:         | %.1f\n", goods[i].price);
+    printf("Seller:        | %s\n", goods[i].seller_id);
+    printf("State:         | %s\n", stateName[goods[i].state]);
 }
 
 void printGood(int i) {
@@ -59,8 +64,35 @@ void printGoods() {
     print_header
     for (int i = 0; i < totalGood; i++) {
         printGood(i);
-        printf("%s\n", divide);
+        print_divide
     }
+}
+
+void printGoods4Seller(const char* id) {
+    print_header
+    for (int i = 0; i < totalGood; i++)
+        if (strcmp(goods[i].seller_id, id) == 0) {
+            printGood(i);
+            print_divide
+        }
+}
+
+void printGoods4Buyer() {
+    print_header
+    for (int i = 0; i < totalGood; i++)
+        if (goods[i].state == SELLING) {
+            printGood(i);
+            print_divide
+        }
+}
+
+void searchGoodName(const char* name) {
+    print_header
+    for (int i = 0; i < totalGood; i++)
+        if (strstr(goods[i].name, name)) {
+            printGood(i);
+            print_divide
+        }
 }
 
 int addGood(Good* g) {
@@ -78,10 +110,10 @@ int searchGoodID(const char* id) {
     return -1;
 }
 
-int deleteGood(const char* id) {
+int deleteGood(const char* id, const char* who) {
     int idx = searchGoodID(id);
     if (idx == -1) return 0;
-    for (int j = idx; j < totalGood - 1; j++) goodCopy(&goods[j], &goods[j+1]);
-    totalGood--;
+    if (who && strcmp(goods[idx].seller_id, who)) return 0;
+    goods[idx].state = BANNED;
     return 1;
 }

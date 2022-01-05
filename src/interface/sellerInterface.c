@@ -28,5 +28,12 @@ static void sell() {
     free(g);
 }
 
-static HANDLER handler[] = {sell, inv, inv, inv, inv, inv, inv};
+static void myGoods() {
+    printGoods4Seller(getUser(curUser)->id);
+    successMessage();
+}
+
+make_ban(G, ood, "Good", getUser(curUser)->id);
+
+static HANDLER handler[] = {sell, myGoods, inv/*Modify*/, banGood, inv/*Order*/};
 make_interface(S, ELLER)

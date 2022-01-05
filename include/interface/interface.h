@@ -51,11 +51,10 @@ void INFO_Interface();
 
 void MODIFY_Interface();
 
-
-// below are some helper macros that simplify codes
-
+// a great macro
 #define make_interface(T, YPE)\
 void T##YPE##_Interface() {\
+    successMessage();\
     int op = menu(T##YPE);\
     while (op != optionNum[T##YPE]) {\
         loadingMessage();\
@@ -65,6 +64,8 @@ void T##YPE##_Interface() {\
     loadingMessage();\
     successMessage();\
 }
+
+// below are some helper macros that simplify codes
 
 #define get_username_passwd\
     char username[MAX_LEN];\
@@ -77,24 +78,22 @@ void T##YPE##_Interface() {\
 #define make_login(T, YPE, cond)\
 static void T##YPE##_Login() {\
     get_username_passwd\
-    if (cond) {\
-        successMessage();\
-        T##YPE##_Interface();\
-        return ;\
-    }\
+    if (cond) { T##YPE##_Interface(); return ; }\
     failureMessage();\
 }
 
 #define make_all(T, YPE)\
 static void all##T##YPE##s() { print##T##YPE##s(); successMessage(); }
 
-#define make_ban(T, YPE, Name)\
+#define make_ban(T, YPE, Name, Who)\
 static void ban##T##YPE() {\
     char id[MAX_LEN];\
-    printf("Please input %s ID to be baned: ", Name);\
+    printf("Please input %s ID to be banned: ", Name);\
     scanf("%s", id);\
-    if (delete##T##YPE(id)) successMessage();\
+    if (delete##T##YPE(id, Who)) successMessage();\
     else failureMessage();\
 }
+
+#define fail { failureMessage(); return; }
 
 #endif

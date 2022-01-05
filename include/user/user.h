@@ -76,9 +76,10 @@ int addUser(User* u);
  * @brief delete user u with id id
  * 
  * @param id user id to be deleted
+ * @param who who does the deletion
  * @return int 0 if failed else 1
  */
-int deleteUser(const char* id);
+int deleteUser(const char* id, const char* who);
 
 /**
  * @brief print all users' infomation
@@ -95,5 +96,14 @@ void printUsers();
  * @return int 1 if matched else 0
  */
 int checkPass(const char* name, const char* passwd, int* idx);
+
+/**
+ * @brief top up money 
+ * 
+ * @param id user id
+ * @param m money
+ * @return int 0 if failed else 1
+ */
+int topUp(const char* id, double m);
 
 #endif

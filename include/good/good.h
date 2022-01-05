@@ -3,8 +3,6 @@
 
 #include "config.h"
 
-#define MAX_GOOD 128
-
 // good state
 typedef enum {SELLING, SOLD, BANNED} State;
 
@@ -43,6 +41,14 @@ void pushGoods();
 void goodCopy(Good* dest, const Good* src);
 
 /**
+ * @brief Get the Good object
+ * 
+ * @param idex index
+ * @return User* pointer to result good
+ */
+Good* getGood(int idex);
+
+/**
  * @brief search good with id
  * 
  * @param id good id to be searched
@@ -62,14 +68,42 @@ int addGood(Good* g);
  * @brief delete good u with id id
  * 
  * @param id good id to be deleted
+ * @param who who does the deletion
  * @return int 0 if failed else 1
  */
-int deleteGood(const char* id);
+int deleteGood(const char* id, const char* who);
 
 /**
  * @brief print all goods' information
  * 
  */
 void printGoods();
+
+/**
+ * @brief print search results
+ * 
+ * @param name name to be searched
+ */
+void searchGoodName(const char* name);
+
+/**
+ * @brief good information
+ * 
+ * @param i good index
+ */
+void goodInfo(int i);
+
+/**
+ * @brief print goods with seller id
+ * 
+ * @param id seller id
+ */
+void printGoods4Seller(const char* id);
+
+/**
+ * @brief print avaliable goods
+ * 
+ */
+void printGoods4Buyer();
 
 #endif

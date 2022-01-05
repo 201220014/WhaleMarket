@@ -84,7 +84,8 @@ int searchUserID(const char* id) {
     return -1;
 }
 
-int deleteUser(const char* id) {
+int deleteUser(const char* id, const char* who) {
+    if (who) return 0;
     int idx = searchUserID(id);
     if (idx == -1) return 0;
     for (int j = idx; j < totalUser - 1; j++) userCopy(&users[j], &users[j+1]);
@@ -96,4 +97,11 @@ int checkPass(const char* name, const char* passwd, int* idx) {
     *idx = searchUserName(name);
     if (*idx == -1) return 0;
     return strcmp(users[*idx].passwd, passwd) == 0;
+}
+
+int topUp(const char* id, double m) {
+    int idx = searchUserID(id);
+    if (idx == -1) return 0;
+    users[idx].balance += m;
+    return 1;
 }

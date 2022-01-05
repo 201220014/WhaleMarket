@@ -4,17 +4,5 @@
 
 int curUser = -1;
 
-static void asBuyer() {
-    successMessage();
-    BUYER_Interface();
-}
-
-static void asSeller() {
-    successMessage();
-    SELLER_Interface();
-}
-
-
-
-static HANDLER handler[] = {asBuyer, asSeller, INFO_Interface};
+static HANDLER handler[] = {BUYER_Interface, SELLER_Interface, INFO_Interface};
 make_interface(U, SER)
