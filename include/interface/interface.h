@@ -85,4 +85,16 @@ static void T##YPE##_Login() {\
     failureMessage();\
 }
 
+#define make_all(T, YPE)\
+static void all##T##YPE##s() { print##T##YPE##s(); successMessage(); }
+
+#define make_ban(T, YPE, Name)\
+static void ban##T##YPE() {\
+    char id[MAX_LEN];\
+    printf("Please input %s ID to be baned: ", Name);\
+    scanf("%s", id);\
+    if (delete##T##YPE(id)) successMessage();\
+    else failureMessage();\
+}
+
 #endif

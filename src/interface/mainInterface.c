@@ -12,7 +12,7 @@ void inv() {
 make_login(U, SER, checkPass(username, passwd, &curUser))
 make_login(A, DMIN, strcmp(username, ADMIN_NAME) == 0 && strcmp(passwd, ADMIN_PASS) == 0)
 
-static void userSignUp() {
+static void USER_SignUp() {
     User* u = (User*)malloc(sizeof(User));
     printf("Please input your username: ");
     scanf("%s", u->name);
@@ -28,6 +28,6 @@ static void userSignUp() {
     free(u);
 }
 
-static HANDLER handler[] = {USER_Login, userSignUp, ADMIN_Login};
+static HANDLER handler[] = {USER_Login, USER_SignUp, ADMIN_Login};
 
 make_interface(M, AIN)
