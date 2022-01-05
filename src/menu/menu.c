@@ -10,7 +10,7 @@
 
 const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6};
 
-// visual propts for different menus
+// visual prompts for different menus
 const char* menuPrompts[MENU_NUM] = {"\
 +==============+================+===============+========+\n\
 | 1.User Login | 2.User Sign Up | 3.Admin Login | 4.Exit |\n\
@@ -24,13 +24,13 @@ const char* menuPrompts[MENU_NUM] = {"\
 | 1.Buyer | 2.Seller | 3.Infomation | 4.Back |\n\
 +=========+==========+==============+========+\n", \
 "\
-+========+=========+==========+=======+=========+========+\n\
-| 1.Sell | 2.Goods | 3.Modify | 4.Ban | 5.Order | 6.Back |\n\
-+========+=========+==========+=======+=========+========+\n",\
-"\
 +=========+=======+==========+=========+==============+========+\n\
 | 1.Goods | 2.Buy | 3.Search | 4.Order | 5.Infomation | 6.Back |\n\
-+=========+=======+==========+=========+==============+========+\n"};
++=========+=======+==========+=========+==============+========+\n", \
+"\
++========+=========+==========+=======+=========+========+\n\
+| 1.Sell | 2.Goods | 3.Modify | 4.Ban | 5.Order | 6.Back |\n\
++========+=========+==========+=======+=========+========+\n"};
 
 const char* menuNames[MENU_NUM] = {"Main", "Admin", "User", "Buyer", "Seller"};
 

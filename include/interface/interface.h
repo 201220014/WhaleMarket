@@ -5,6 +5,7 @@
 #include "menu/menu.h"
 #include "user/user.h"
 #include "good/good.h"
+#include "config.h"
 
 // invalid prompt
 void inv();

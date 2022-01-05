@@ -15,6 +15,7 @@ typedef struct {
     double price;
     char seller_id[MAX_LEN];
     State state;
+    char date[MAX_LEN];
     char description[MAX_LEN];
 } Good;
 

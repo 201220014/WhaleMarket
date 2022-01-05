@@ -11,6 +11,8 @@ DATA = src/data/*.txt # 搜索所有的数据文件
 
 RM = -rm -f # 删除方式
 
+all: $(TARGET)
+
 # 项目构建方式
 $(TARGET): $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS)

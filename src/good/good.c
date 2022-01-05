@@ -15,9 +15,9 @@ void pullGoods() {
     totalGood = 0;
     FILE* pf = fopen(filePath, "r");
     if (pf) {
-        while (fscanf(pf, "%s%s%lf%s%u%s", goods[totalGood].id, \
+        while (fscanf(pf, "%s%s%lf%s%u%s%s", goods[totalGood].id, \
 goods[totalGood].name, &goods[totalGood].price, goods[totalGood].seller_id, \
-&goods[totalGood].state, goods[totalGood].description) != EOF) totalGood++;
+&goods[totalGood].state, goods[totalGood].date, goods[totalGood].description) != EOF) totalGood++;
         fclose(pf);
     }
 }
@@ -25,8 +25,8 @@ goods[totalGood].name, &goods[totalGood].price, goods[totalGood].seller_id, \
 void pushGoods() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalGood; i++)
-        fprintf(pf, "%s %s %lf %s %u %s\n", goods[i].id, goods[i].name, goods[i].price, \
-goods[i].seller_id, goods[i].state, goods[i].description);
+        fprintf(pf, "%s %s %lf %s %u %s %s\n", goods[i].id, goods[i].name, goods[i].price, \
+goods[i].seller_id, goods[i].state, goods[i].date, goods[i].description);
     fclose(pf);
 }
 
@@ -36,14 +36,15 @@ void goodCopy(Good* dest, const Good* src) {
     dest->price = src->price;
     strcpy(dest->seller_id, src->seller_id);
     dest->state = src->state;
+    strcpy(dest->date, src->date);
     strcpy(dest->description, src->description);
 }
 
 Good* getGood(int idx) { return goods + idx; }
 
 void printGood(int i) {
-    printf("%s %s %lf %s %d\n", goods[i].id, goods[i].name, goods[i].price, \
-goods[i].seller_id, goods[i].state);
+    printf("%s %s %lf %s %s %s\n", goods[i].id, goods[i].name, goods[i].price, \
+goods[i].date, goods[i].seller_id, stateName[goods[i].state]);
 }
 
 void printGoods() {
@@ -59,6 +60,7 @@ int searchGoodName(const char* name) {
 
 int addGood(Good* g) {
     genID(g->id, 'G');
+    getDate(g->date);
     goodCopy(&goods[totalGood++], g);
     return 1;
 }

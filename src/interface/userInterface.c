@@ -14,5 +14,5 @@ static void asSeller() {
     SELLER_Interface();
 }
 
-static HANDLER handler[] = {asBuyer, asSeller, inv, inv};
+static HANDLER handler[] = {asBuyer, asSeller, inv};
 make_interface(U, SER)

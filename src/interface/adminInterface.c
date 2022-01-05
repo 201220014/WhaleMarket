@@ -5,5 +5,10 @@ static void allUsers() {
     successMessage();
 }
 
-static HANDLER handler[] = {inv, inv, inv, allUsers, inv, inv, inv};
+static void allGoods() {
+    printGoods();
+    successMessage();
+}
+
+static HANDLER handler[] = {allGoods, inv, inv, allUsers, inv, inv, inv};
 make_interface(A, DMIN)
