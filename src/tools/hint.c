@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 // all kinds of visual hints
-const char* BANNER = "\
+static const char* BANNER = "\
 \t__          ___           _          __  __            _        _       _\n\
 \t\\ \\        / / |         | |        |  \\/  |          | |      | |     | |\n\
 \t \\ \\  /\\  / /| |__   __ _| | ___    | \\  / | __ _ _ __| | _____| |_    | |\n\
@@ -12,13 +12,13 @@ const char* BANNER = "\
 \t    \\/  \\/   |_| |_|\\__,_|_|\\___|   |_|  |_|\\__,_|_|  |_|\\_\\___|\\__|   (_)\n\
 ";
 
-const char* SUCCESS = "\t\t*** Operation Successful! ***";
-const char* FAILURE = "\t\t*** Operation Failed! ***";
-const char* ILLEGAL = "\t\t*** Illegal Input! ***";
-const char* LOADING = "\t\t*** Loading ... ***";
-const char* EXITING = "\t\t*** Exiting ... ***";
+static const char* SUCCESS = "\t\t*** Operation Successful! ***";
+static const char* FAILURE = "\t\t*** Operation Failed! ***";
+static const char* ILLEGAL = "\t\t*** Illegal Input! ***";
+static const char* LOADING = "\t\t*** Loading ... ***";
+static const char* EXITING = "\t\t*** Exiting ... ***";
 
-const char* INVALID = "\
+static const char* INVALID = "\
 \t  _____                           _   _       _   _\n\
 \t |_   _|                         | | (_)     | | | |\n\
 \t   | |    _ __   __   __   __ _  | |  _    __| | | |\n\
