@@ -22,4 +22,5 @@ $(TARGET): $(OBJS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
+	git commit -a -m "> make clean"
 	$(RM) $(TARGET) $(OBJS) $(DATA)
