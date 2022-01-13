@@ -30,7 +30,7 @@ static const char* INVALID = "\
 void welcomeMessage() {
     printf("\n%s%sWelcome to%s\n", BOLD, FRONT_RED, RESET);
     printf("%s%s%s%s\n", FRONT_BLUE, BOLD, BANNER, RESET);
-    printf("%sThis is WinterCode Project for CS&AI Debate Team.%s\n\n", FRONT_PURPLR, RESET);
+    printf("%sThis is WinterCode Project for C-Beginners.%s\n\n", FRONT_PURPLR, RESET);
 }
 
 void successMessage() { printf("\n%s%s%s\n\n", FRONT_GREEN, SUCCESS, RESET); }
