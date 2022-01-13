@@ -35,5 +35,5 @@ static void myGoods() {
 
 make_ban(G, ood, "Good", getUser(curUser)->id);
 
-static HANDLER handler[] = {sell, myGoods, inv/*Modify*/, banGood, inv/*Order*/};
+static HANDLER handler[] = {sell, myGoods, GOOD_Interface, banGood, inv/*Order*/};
 make_interface(S, ELLER)

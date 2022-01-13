@@ -43,13 +43,27 @@ void BUYER_Interface();
 
 /**
  * @brief 
- * | 1.Sell | 2.Goods | 3.Modify | 4.Ban | 5.Order | 6.Back |\n\
+ * | 1.Sell | 2.Goods | 3.Modify | 4.Ban | 5.Order | 6.Back |
  */
 void SELLER_Interface();
 
+/**
+ * @brief 
+ * | 1.Information | 2.Modify | 3.Top Up | 4.Back |
+ */
 void INFO_Interface();
 
+/**
+ * @brief 
+ * | 1.Password | 2.Contact | 3.Address | 4.Back |
+ */
 void MODIFY_Interface();
+
+/**
+ * @brief 
+ * | 1.Name | 2.Price | 3.Description | 4.Back |
+ */
+void GOOD_Interface();
 
 // a great macro
 #define make_interface(T, YPE)\

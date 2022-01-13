@@ -6,9 +6,9 @@
 #include <stdlib.h>
 
 // the number of menus
-#define MENU_NUM 7
+#define MENU_NUM 8
 
-const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6, 4, 4};
+const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6, 4, 4, 4};
 
 // visual prompts for different menus
 static const char* menuPrompts[MENU_NUM] = {"\
@@ -38,9 +38,13 @@ static const char* menuPrompts[MENU_NUM] = {"\
 "\
 +============+===========+===========+========+\n\
 | 1.Password | 2.Contact | 3.Address | 4.Back |\n\
-+============+===========+===========+========+\n" };
++============+===========+===========+========+\n", \
+"\
++========+=========+===============+========+\n\
+| 1.Name | 2.Price | 3.Description | 4.Back |\n\
++========+=========+===============+========+\n"};
 
-static const char* menuNames[MENU_NUM] = {"Main", "Admin", "User", "Buyer", "Seller", "Information", "Modify"};
+static const char* menuNames[MENU_NUM] = {"Main", "Admin", "User", "Buyer", "Seller", "Information", "Modify", "Good"};
 
 /**
  * @brief print visual prompt message
