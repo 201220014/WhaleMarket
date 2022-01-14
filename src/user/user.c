@@ -3,10 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_USER 128
-
-User users[MAX_USER]; // all users
-int totalUser = 0; // total user number
+static User users[MAX_USER]; // all users
+static int totalUser = 0; // total user number
 
 static const char* filePath = "src/data/user.txt";
 static const char* header = "|ID         |Name       |Contact    |Address    |Balance    |";
@@ -31,7 +29,13 @@ users[i].contact, users[i].address, users[i].balance);
     fclose(pf);
 }
 
-void userCopy(User* dest, const User* src) {
+/**
+ * @brief copy User src to User dest
+ * 
+ * @param dest pointer of dest user
+ * @param src pointer of src user
+ */
+static void userCopy(User* dest, const User* src) {
     strcpy(dest->id, src->id);
     strcpy(dest->name, src->name);
     strcpy(dest->passwd, src->passwd);
@@ -77,7 +81,13 @@ int addUser(User* u) {
     return 1;
 }
 
-int searchUserID(const char* id) {
+/**
+ * @brief search user with id
+ * 
+ * @param id user id to be searched
+ * @return int -1 if failed else index in users
+ */
+static int searchUserID(const char* id) {
     for (int i = 0; i < totalUser; i++)
         if (strcmp(users[i].id, id) == 0) return i;
     return -1;

@@ -26,14 +26,6 @@ void pullUsers();
 void pushUsers();
 
 /**
- * @brief copy User src to User dest
- * 
- * @param dest pointer of dest user
- * @param src pointer of src user
- */
-void userCopy(User* dest, const User* src);
-
-/**
  * @brief Get the User object
  * 
  * @param idex index
@@ -47,14 +39,6 @@ User* getUser(int idex);
  * @param i user index
  */
 void userInfo(int i);
-
-/**
- * @brief search user with id
- * 
- * @param id user id to be searched
- * @return int -1 if failed else index in users
- */
-int searchUserID(const char* id);
 
 /**
  * @brief search user with name
