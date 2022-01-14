@@ -41,14 +41,6 @@ User* getUser(int idex);
 void userInfo(int i);
 
 /**
- * @brief search user with name
- * 
- * @param name username to be searched
- * @return int -1 if failed else index in users
- */
-int searchUserName(const char* name);
-
-/**
  * @brief add user u to users
  * 
  * @param u user to be added

@@ -29,6 +29,41 @@ users[i].contact, users[i].address, users[i].balance);
     fclose(pf);
 }
 
+User* getUser(int idex) { return users + idex; }
+
+void userInfo(int i) {
+    printf("ID:        | %s\n", users[i].id);
+    printf("Name:      | %s\n", users[i].name);
+    printf("Contact:   | %s\n", users[i].contact);
+    printf("Address:   | %s\n", users[i].address);
+    printf("Balance:   | %.1f\n", users[i].balance);
+}
+
+static void printUser(int i) {
+    printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
+users[i].contact, users[i].address, users[i].balance);
+}
+
+void printUsers() {
+    print_header
+    for (int i = 0; i < totalUser; i++) {
+        printUser(i);
+        printf("%s\n", divide);
+    }
+}
+
+/**
+ * @brief search user with name
+ * 
+ * @param name username to be searched
+ * @return int -1 if failed else index in users
+ */
+static int searchUserName(const char* name) {
+    for (int i = 0; i < totalUser; i++)
+        if (strcmp(users[i].name, name) == 0) return i;
+    return -1;
+}
+
 /**
  * @brief copy User src to User dest
  * 
@@ -42,35 +77,6 @@ static void userCopy(User* dest, const User* src) {
     strcpy(dest->contact, src->contact);
     strcpy(dest->address, src->address);
     dest->balance = src->balance;
-}
-
-User* getUser(int idex) { return users + idex; }
-
-static void printUser(int i) {
-    printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
-users[i].contact, users[i].address, users[i].balance);
-}
-
-void userInfo(int i) {
-    printf("ID:        | %s\n", users[i].id);
-    printf("Name:      | %s\n", users[i].name);
-    printf("Contact:   | %s\n", users[i].contact);
-    printf("Address:   | %s\n", users[i].address);
-    printf("Balance:   | %.1f\n", users[i].balance);
-}
-
-void printUsers() {
-    print_header
-    for (int i = 0; i < totalUser; i++) {
-        printUser(i);
-        printf("%s\n", divide);
-    }
-}
-
-int searchUserName(const char* name) {
-    for (int i = 0; i < totalUser; i++)
-        if (strcmp(users[i].name, name) == 0) return i;
-    return -1;
 }
 
 int addUser(User* u) {
