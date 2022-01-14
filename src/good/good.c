@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_GOOD 128
-
 Good goods[MAX_GOOD];
 int totalGood = 0;
 
