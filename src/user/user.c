@@ -64,21 +64,6 @@ static int searchUserName(const char* name) {
     return -1;
 }
 
-/**
- * @brief copy User src to User dest
- * 
- * @param dest pointer of dest user
- * @param src pointer of src user
- */
-static void userCopy(User* dest, const User* src) {
-    strcpy(dest->id, src->id);
-    strcpy(dest->name, src->name);
-    strcpy(dest->passwd, src->passwd);
-    strcpy(dest->contact, src->contact);
-    strcpy(dest->address, src->address);
-    dest->balance = src->balance;
-}
-
 int addUser(User* u) {
     if (totalUser == MAX_USER) return 0;
     if (searchUserName(u->name) != -1) return 0;
@@ -103,7 +88,7 @@ int deleteUser(const char* id, const char* who) {
     if (who) return 0;
     int idx = searchUserID(id);
     if (idx == -1) return 0;
-    for (int j = idx; j < totalUser - 1; j++) userCopy(&users[j], &users[j+1]);
+    for (int j = idx; j < totalUser - 1; j++) users[j], &users[j+1];
     totalUser--;
     return 1;
 }

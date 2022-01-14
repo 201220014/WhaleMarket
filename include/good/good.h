@@ -33,14 +33,6 @@ void pullGoods();
 void pushGoods();
 
 /**
- * @brief copy Good src to Good dest
- * 
- * @param dest pointer of dest good
- * @param src pointer of src good
- */
-void goodCopy(Good* dest, const Good* src);
-
-/**
  * @brief Get the Good object
  * 
  * @param idex index

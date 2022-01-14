@@ -31,16 +31,6 @@ goods[i].seller_id, goods[i].state, goods[i].date, goods[i].description);
     fclose(pf);
 }
 
-void goodCopy(Good* dest, const Good* src) {
-    strcpy(dest->id, src->id);
-    strcpy(dest->name, src->name);
-    dest->price = src->price;
-    strcpy(dest->seller_id, src->seller_id);
-    dest->state = src->state;
-    strcpy(dest->date, src->date);
-    strcpy(dest->description, src->description);
-}
-
 Good* getGood(int idex) { return goods + idex; }
 
 void goodInfo(int i) {
@@ -107,7 +97,7 @@ int addGood(Good* g) {
     genID(g->id, 'G');
     getDate(g->date);
     g->state = SELLING;
-    goodCopy(&goods[totalGood++], g);
+    goods[totalGood++] = *g;
     return 1;
 }
 
