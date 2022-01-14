@@ -88,7 +88,7 @@ int deleteUser(const char* id, const char* who) {
     if (who) return 0;
     int idx = searchUserID(id);
     if (idx == -1) return 0;
-    for (int j = idx; j < totalUser - 1; j++) users[j], &users[j+1];
+    for (int j = idx; j < totalUser - 1; j++) users[j] = users[j+1];
     totalUser--;
     return 1;
 }
