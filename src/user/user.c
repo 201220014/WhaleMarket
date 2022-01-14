@@ -83,7 +83,7 @@ int addUser(User* u) {
     if (totalUser == MAX_USER) return 0;
     if (searchUserName(u->name) != -1) return 0;
     genID(u->id, 'U');
-    userCopy(&users[totalUser++], u);
+    users[totalUser++] = *u;
     return 1;
 }
 
