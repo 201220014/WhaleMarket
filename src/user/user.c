@@ -39,6 +39,11 @@ void userInfo(int i) {
     printf("Balance:   | %.1f\n", users[i].balance);
 }
 
+/**
+ * @brief print a single user as part of a table
+ * 
+ * @param i index of the user
+ */
 static void printUser(int i) {
     printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
 users[i].contact, users[i].address, users[i].balance);
@@ -48,7 +53,7 @@ void printUsers() {
     print_header
     for (int i = 0; i < totalUser; i++) {
         printUser(i);
-        printf("%s\n", divide);
+        print_divide
     }
 }
 

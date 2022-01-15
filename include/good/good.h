@@ -6,7 +6,7 @@
 // good state
 typedef enum {SELLING, SOLD, BANNED} State;
 
-// type definition of user
+// type definition of good
 typedef struct {
     char id[MAX_LEN];
     char name[MAX_LEN];
@@ -16,9 +16,6 @@ typedef struct {
     char date[MAX_LEN];
     char description[MAX_LEN];
 } Good;
-
-extern Good goods[]; // all goods
-extern int totalGood; // total good number
 
 /**
  * @brief pull all good infomation from external file

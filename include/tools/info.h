@@ -22,7 +22,7 @@ void genID(char* dest, char type);
     printf("%s\n", header);\
     printf("%s\n", divide);
 
-#endif
-
 #define print_divide \
     printf("%s\n", divide);
+
+#endif

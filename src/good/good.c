@@ -3,14 +3,13 @@
 #include <stdio.h>
 #include <string.h>
 
-Good goods[MAX_GOOD];
-int totalGood = 0;
-
-const char* stateName[] = {"Selling", "Sold", "Banned"};
+static Good goods[MAX_GOOD]; // all goods
+static int totalGood = 0;
 
 static const char* filePath = "src/data/good.txt";
 static const char* header = "|ID         |Name       |Price      |Date       |Seller     |State      |";
 static const char* divide = "+-----------+-----------+-----------+-----------+-----------+-----------+";
+static const char* stateName[] = {"Selling", "Sold", "Banned"};
 
 void pullGoods() {
     totalGood = 0;
@@ -43,7 +42,30 @@ void goodInfo(int i) {
     printf("State:         | %s\n", stateName[goods[i].state]);
 }
 
-void printGood(int i) {
+int addGood(Good* g) {
+    if (totalGood == MAX_GOOD) return 0;
+    genID(g->id, 'G');
+    getDate(g->date);
+    g->state = SELLING;
+    goods[totalGood++] = *g;
+    return 1;
+}
+
+int searchGoodID(const char* id) {
+    for (int i = 0; i < totalGood; i++)
+        if (strcmp(goods[i].id, id) == 0) return i;
+    return -1;
+}
+
+int deleteGood(const char* id, const char* who) {
+    int idx = searchGoodID(id);
+    if (idx == -1) return 0;
+    if (who && strcmp(goods[idx].seller_id, who)) return 0;
+    goods[idx].state = BANNED;
+    return 1;
+}
+
+static void printGood(int i) {
     printf("|%-10s |%-10s |%-10.1f |%-10s |%-10s |%-10s |\n", goods[i].id, goods[i].name, goods[i].price, \
 goods[i].date, goods[i].seller_id, stateName[goods[i].state]);
 }
@@ -90,27 +112,4 @@ void searchGoodName4Admin(const char* name) {
             printGood(i);
             print_divide
         }
-}
-
-int addGood(Good* g) {
-    if (totalGood == MAX_GOOD) return 0;
-    genID(g->id, 'G');
-    getDate(g->date);
-    g->state = SELLING;
-    goods[totalGood++] = *g;
-    return 1;
-}
-
-int searchGoodID(const char* id) {
-    for (int i = 0; i < totalGood; i++)
-        if (strcmp(goods[i].id, id) == 0) return i;
-    return -1;
-}
-
-int deleteGood(const char* id, const char* who) {
-    int idx = searchGoodID(id);
-    if (idx == -1) return 0;
-    if (who && strcmp(goods[idx].seller_id, who)) return 0;
-    goods[idx].state = BANNED;
-    return 1;
 }
