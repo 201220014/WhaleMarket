@@ -10,7 +10,7 @@ static const char* filePath = "src/data/order.txt";
 static const char* header = "|ID         |Good       |Price      |Date       |Seller     |Buyer      |";
 static const char* divide = "+-----------+-----------+-----------+-----------+-----------+-----------+";
 
-void pullGoods() {
+void pullOrders() {
     totalOrder = 0;
     FILE* pf = fopen(filePath, "r");
     if (pf) {
@@ -21,7 +21,7 @@ orders[totalOrder].seller_id, orders[totalOrder].buyer_id) != EOF) totalOrder++;
     }
 }
 
-void pushGoods() {
+void pushOrders() {
     FILE* pf = fopen(filePath, "w");
     for (int i = 0; i < totalOrder; i++)
         fprintf(pf, "%s %s %.1f %s %s %s\n", orders[i].id, \
@@ -61,7 +61,7 @@ void printOrders4Seller(const char* id) {
         }
 }
 
-void printGoods4Buyer(const char* id) {
+void printOrders4Buyer(const char* id) {
     print_header
     for (int i = 0; i < totalOrder; i++)
         if (strcmp(orders[i].buyer_id, id) == 0) {
