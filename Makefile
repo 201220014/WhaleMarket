@@ -23,4 +23,3 @@ $(TARGET): $(OBJS)
 
 clean:
 	$(RM) $(TARGET) $(OBJS) $(DATA)
-	git commit -a -m "> make clean"
