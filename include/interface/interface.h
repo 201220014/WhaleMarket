@@ -5,7 +5,7 @@
 #include "menu/menu.h"
 #include "user/user.h"
 #include "good/good.h"
-#include "config.h"
+#include "order/order.h"
 
 // invalid prompt
 void inv();
@@ -127,6 +127,12 @@ static void modify_##TYPE() {\
     scanf("%s", buffer);\
     User* u = getUser(curUser);\
     strcpy(u->TYPE, buffer);\
+    successMessage();\
+}
+
+#define make_my(TYPE, W, HO)\
+static void my##TYPE() {\
+    print##TYPE##4##W##HO(getUser(curUser)->id);\
     successMessage();\
 }
 

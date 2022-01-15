@@ -1,11 +1,8 @@
 #include "interface/interface.h"
 
 #include <stdio.h>
-
-static void myGoods() {
-    printGoods4Buyer();
-    successMessage();
-}
+#include <stdlib.h>
+#include <string.h>
 
 static void buy() {
     char buffer[MAX_LEN];
@@ -13,14 +10,27 @@ static void buy() {
     scanf("%s", buffer);
     int idx = searchGoodID(buffer);
     if (idx == -1) fail
+
     Good* g = getGood(idx);
-    User* u = getUser(curUser);
+    User* u = getUser(curUser); // buyer
+
     if (g->state != SELLING) fail
     if (g->price > u->balance) fail
+    
     u->balance -= g->price;
     g->state = SOLD;
     userTopUp(g->seller_id, g->price);
-    successMessage();
+
+    // generate an order
+    Order* o = (Order*)malloc(sizeof(Order));
+    strcpy(o->good_id, g->id);
+    strcpy(o->seller_id, g->seller_id);
+    strcpy(o->buyer_id, u->id);
+    o->price = g->price;
+
+    if (addOrder(o)) successMessage();
+    else failureMessage();
+    free(o);
 }
 
 static void info() {
@@ -36,5 +46,9 @@ static void info() {
 
 make_search(Buyer)
 
-static HANDLER handler[] = {myGoods, buy, search, inv/*Order*/, info};
+make_my(Goods, B, uyer)
+make_my(Orders, B, uyer)
+
+static HANDLER handler[] = {myGoods, buy, search, myOrders, info};
+
 make_interface(B, UYER)

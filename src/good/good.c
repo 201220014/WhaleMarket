@@ -87,7 +87,7 @@ void printGoods4Seller(const char* id) {
         }
 }
 
-void printGoods4Buyer() {
+void printGoods4Buyer(const char* id) {
     print_header
     for (int i = 0; i < totalGood; i++)
         if (goods[i].state == SELLING) {

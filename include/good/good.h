@@ -99,7 +99,8 @@ void printGoods4Seller(const char* id);
 /**
  * @brief print avaliable goods
  * 
+ * @param id buyer id
  */
-void printGoods4Buyer();
+void printGoods4Buyer(const char* id);
 
 #endif
