@@ -7,9 +7,6 @@ typedef enum {MAIN, ADMIN, USER, BUYER, SELLER, INFO, MODIFY, GOOD} Menu;
 // the number of option for different menus
 extern const int optionNum[];
 
-// the name of different menus
-// extern const char* menuName[];
-
 /**
  * @brief a menu is what gives some prompt and gets a user input 
  * 

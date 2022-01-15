@@ -1,12 +1,9 @@
+#include "config.h"
 #include "menu/menu.h"
 #include "tools/hint.h"
 #include "tools/color.h"
-#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-// the number of menus
-#define MENU_NUM 8
 
 const int optionNum[MENU_NUM] = {4, 7, 4, 6, 6, 4, 4, 4};
 
