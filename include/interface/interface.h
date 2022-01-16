@@ -141,8 +141,6 @@ static void modify_##TYPE() {\
     successMessage();\
 }
 
-
-
 #define make_my(TYPE, W, HO) \
 static void my##TYPE() {\
     print##TYPE##4##W##HO(getUser(curUser)->id);\
