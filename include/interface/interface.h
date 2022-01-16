@@ -13,6 +13,9 @@ void inv();
 // current User
 extern int curUser;
 
+// current Good
+extern int curGood;
+
 typedef void (*HANDLER)(void);
 
 /* An interface gets user input with corresponding menu and handles it. */
@@ -66,7 +69,7 @@ void MODIFY_Interface();
 void GOOD_Interface();
 
 // a great macro
-#define make_interface(T, YPE)\
+#define make_interface(T, YPE) \
 void T##YPE##_Interface() {\
     successMessage();\
     int op = menu(T##YPE);\
@@ -89,17 +92,17 @@ void T##YPE##_Interface() {\
     printf ("Password: ");\
     scanf("%s", passwd);
 
-#define make_login(T, YPE, cond)\
+#define make_login(T, YPE, cond) \
 static void T##YPE##_Login() {\
     get_username_passwd\
     if (cond) { T##YPE##_Interface(); return ; }\
     failureMessage();\
 }
 
-#define make_all(T, YPE)\
+#define make_all(T, YPE) \
 static void all##T##YPE##s() { print##T##YPE##s(); successMessage(); }
 
-#define make_ban(T, YPE, Name, Who)\
+#define make_ban(T, YPE, Name, Who) \
 static void ban##T##YPE() {\
     char id[MAX_LEN];\
     printf("Please input %s ID to be banned: ", Name);\
@@ -108,9 +111,7 @@ static void ban##T##YPE() {\
     else failureMessage();\
 }
 
-#define fail { failureMessage(); return; }
-
-#define make_search(WHO)\
+#define make_search(WHO) \
 static void search() {\
     char buffer[MAX_LEN];\
     printf("Please input Good Name to search: ");\
@@ -120,20 +121,32 @@ static void search() {\
     successMessage();\
 }
 
-#define make_modify(TYPE, NAME)\
+#define make_modify(TYPE, W, HO) \
 static void modify_##TYPE() {\
     char buffer[MAX_LEN];\
-    printf("Please input new %s: ", NAME);\
+    printf("Please input new %s: ", #TYPE);\
     scanf("%s", buffer);\
-    User* u = getUser(curUser);\
-    strcpy(u->TYPE, buffer);\
+    W##HO* x = get##W##HO(cur##W##HO);\
+    strcpy(x->TYPE, buffer);\
     successMessage();\
 }
 
-#define make_my(TYPE, W, HO)\
+#define check_double\
+    double m = atof(buffer);\
+    while (1) {\
+        if (m > 0) break;\
+        illegalMessage();\
+        printf("Please try again: ");\
+        scanf("%s", buffer);\
+        m = atof(buffer);\
+    }
+
+#define make_my(TYPE, W, HO) \
 static void my##TYPE() {\
     print##TYPE##4##W##HO(getUser(curUser)->id);\
     successMessage();\
 }
+
+#define fail { failureMessage(); return; }
 
 #endif

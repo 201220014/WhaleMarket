@@ -29,5 +29,4 @@ static void USER_SignUp() {
 }
 
 static HANDLER handler[] = {USER_Login, USER_SignUp, ADMIN_Login};
-
 make_interface(M, AIN)

@@ -50,5 +50,4 @@ make_my(Goods, B, uyer)
 make_my(Orders, B, uyer)
 
 static HANDLER handler[] = {myGoods, buy, search, myOrders, info};
-
 make_interface(B, UYER)
