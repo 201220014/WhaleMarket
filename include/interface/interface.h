@@ -99,6 +99,16 @@ static void T##YPE##_Login() {\
     failureMessage();\
 }
 
+#define check_double\
+    double m = atof(buffer);\
+    while (1) {\
+        if (m > 0) break;\
+        illegalMessage();\
+        printf("Please try again: ");\
+        scanf("%s", buffer);\
+        m = atof(buffer);\
+    }
+
 #define make_all(T, YPE) \
 static void all##T##YPE##s() { print##T##YPE##s(); successMessage(); }
 
@@ -131,15 +141,7 @@ static void modify_##TYPE() {\
     successMessage();\
 }
 
-#define check_double\
-    double m = atof(buffer);\
-    while (1) {\
-        if (m > 0) break;\
-        illegalMessage();\
-        printf("Please try again: ");\
-        scanf("%s", buffer);\
-        m = atof(buffer);\
-    }
+
 
 #define make_my(TYPE, W, HO) \
 static void my##TYPE() {\

@@ -29,7 +29,11 @@ static void modify() {
     scanf("%s", buffer);
     curGood = searchGoodID(buffer);
     if (curGood == -1) fail
-    GOOD_Interface();
+    User* u = getUser(curUser);
+    Good* g = getGood(curGood);
+    if (strcmp(u->id, g->seller_id) == 0 && g->state == SELLING) 
+        GOOD_Interface();
+    else failureMessage();
 }
 
 make_my(Goods, S, eller)
