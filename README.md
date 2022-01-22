@@ -10,23 +10,9 @@
 
 ![pic01](img/pic01.png)
 
-This is a <u>C-beginner project</u> -- **Whale Market**. Basically it's an **Infomation Management System**, which is also the <u>first project of most C-developers</u>. 
+详细内容见：https://cui-jiacai.gitbook.io/whale-market/
 
-The framework, which might be a little difficult for C-beginners, is already done. There will be **4 phases** during this project. **The framework code will only work as a reference in phase1, phase2 and phase3. And you don't have to follow the code.** In phase4, I invite you guys to help me completed my version of the whole project based on what I have written.
-
-> Actually, I suggest you guys not reading the framework code until phase4. When it comes to phase4, compare what you have written and how I code to achieve the same goal with you, and you will get a lot of inspiration.
-
-**Goal:** <u>To Write a Local Market of NJU named Whale Market</u>.
-
-**Environment:** **Linux & gcc** is highly recommended because that's where the environment of framework. However, there won't be any problems with **Windows & VS** during phase1 to phase3, since these two phases doesn't need framework.
-
-**Workload:** Based on yourself, but regularly 1000 - 1500 lines.
-
-**Forerunner:** Fundamentals of Programming with C/C++.
-
-> The tutorial part will be in Chinese, and I recommend you to design your Market in Chinese, which will save your enery so that you can focus on the designment itself. 
-
-**Since not tested yet, there might be loads of bugs in the framework. Don't trust it too much.**
+![pic19](img/pic19.png)
 
 
 
@@ -55,7 +41,7 @@ The framework, which might be a little difficult for C-beginners, is already don
 
 ### 2.2 具体功能示例
 
-以下部分取自2021春南大程设实验课程ppt，可做基本功能的参照使用。
+> 以下部分取自2021春南大程设实验课程ppt，可做基本功能的参照使用。
 
 #### 2.2.1 管理员功能简介
 
@@ -112,24 +98,20 @@ The framework, which might be a little difficult for C-beginners, is already don
 
 ## 3 Reference
 
-参考代码仓库地址：https://gitee.com/cui-jiacai/whale-market
+参考代码仓库地址：https://github.com/201220014/WhaleMarket
+
+框架代码仓库地址：https://github.com/201220014/WhaleMarket-Framework
 
 ### 3.1 关于参考代码的效果
 
-这是参考代码在命令行运行的效果，不过还没有实现全部的功能：
+这是参考代码在命令行运行的效果：
 
 ![pic18](img/pic18.png)
 
-参考代码只实现了用户的注册、登陆功能以及比较草率的管理员查看所有用户功能以供调试。如果使用参考代码还没有实现的功能，会出现如下界面：
 
-![pic19](img/pic19.png)
 
 ### 3.2 对于参考代码的要求
 
-在前3个阶段尽量别看，**自己动手，从0开始**。
+在前2个阶段尽量别看，**自己动手，从0开始**。
 
-到最后一个阶段的时候，哪怕不顺着框架代码补全功能（之后我可能自己会补全），也可以比较一下已有的功能和自己的实现之间有何区别，又有何优劣之处，以及思考一下为什么我会这样设计，大抵是会有所启发的。
-
-### 3.3 关于提问
-
-可以在远程仓库的issue栏内提问题，有空会回的。
+到最后一个阶段的时候，可以比较一下参考实现和自己的实现之间有何区别，又有何优劣之处，以及思考一下为什么我会这样设计，大抵是会有所启发的。
