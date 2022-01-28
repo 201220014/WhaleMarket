@@ -12,7 +12,6 @@ DATA = src/data/*.txt # 搜索所有的数据文件
 RM = -rm -f # 删除方式
 
 all: $(TARGET)
-	git commit -a -m "> make"
 
 # 项目构建方式
 $(TARGET): $(OBJS)
@@ -22,4 +21,4 @@ $(TARGET): $(OBJS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	$(RM) $(TARGET) $(OBJS)
+	$(RM) $(TARGET) $(OBJS) $(DATA)
